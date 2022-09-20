@@ -3,6 +3,7 @@ import * as Tone from 'tone'
 
 const filter = new Tone.Filter(0, "lowpass").toDestination()
 const reverb = new Tone.Reverb(4).toDestination()
+const delay = new Tone.Delay().toDestination()
 
 export const polySynth = new Tone.PolySynth().toDestination()
 polySynth.set({
@@ -77,4 +78,12 @@ export function polySynthReverbSetWet(value : number) {
     reverb.set({
         wet: value
     })
+}
+
+export function polySynthConnectDelay() {
+    polySynth.connect(delay)
+}
+
+export function polySynthDisconnectDelay() {
+    polySynth.disconnect(delay)
 }

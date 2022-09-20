@@ -13,6 +13,8 @@ let settingBox : HTMLElement
 let on = false
 let knobColor = "#D7B14F"
 
+let onIcon : HTMLElement;
+
 onMount(() => {
     if (!on) {
         settingBox.classList.add("disabled")
@@ -22,11 +24,14 @@ onMount(() => {
 function powerOn() {
     if (!on) {
         settingBox.classList.remove("disabled")
+        onIcon.classList.add("active")
         polySynthConnectReverb()
         on = true
     }
     else  {
         settingBox.classList.add("disabled")
+        onIcon.classList.remove("active")
+
         polySynthDisconnectReverb()
         on = false
     }
@@ -45,11 +50,11 @@ function setWet(value) {
 
 <div class="setting">
     <div class="settingHeading">reverb
-        <span class="material-icons" on:click={powerOn}>power_settings_new</span>
+        <span class="material-icons" on:click={powerOn} bind:this={onIcon}>power_settings_new</span>
     </div>
     <div bind:this={settingBox} class="settingBox">
         <Knob label="decay" color={knobColor} on:adjusting={setDecay}></Knob>
-        <Knob label="wet"  color={knobColor} value={50}></Knob>
+        <Knob label="wet"  color={knobColor} on:adjusting={setWet} value={50}></Knob>
 
     </div>
 

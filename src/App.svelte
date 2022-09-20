@@ -7,6 +7,7 @@
   import Settings from "./lib/components/Settings.svelte";
   import Filter from "./lib/components/Filter.svelte";
   import Reverb from "./lib/components/Reverb.svelte";
+  import Delay from "./lib/components/Delay.svelte";
 
   function log(event) {
       console.log("Adjusted "+ event.detail)
@@ -29,6 +30,7 @@
         </div>
         <div class="thirdColumn column">
           <Reverb></Reverb>
+          <Delay></Delay>
         </div>
 
       </div>
