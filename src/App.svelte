@@ -10,6 +10,7 @@
   import Delay from "./lib/components/Delay.svelte";
   import Compressor from "./lib/components/Compressor.svelte";
   import Distortion from "./lib/components/Distortion.svelte";
+  import Vibrato from "./lib/components/Vibrato.svelte";
 
   function log(event) {
       console.log("Adjusted "+ event.detail)
@@ -37,6 +38,9 @@
         <div class="fourthColumn column">
           <Compressor></Compressor>
           <Distortion></Distortion>
+        </div>
+        <div class="fifthColumn column">
+          <Vibrato></Vibrato>
         </div>
 
       </div>
@@ -102,6 +106,10 @@
   .fourthColumn {
     grid-column-start: 4;
     grid-column-end: 5;
+  }
+  .fifthColumn {
+    grid-column-start: 5;
+    grid-column-end: 6;
   }
   .column {
     display: flex;

@@ -5,6 +5,7 @@ const filter = new Tone.Filter(0, "lowpass").toDestination()
 const reverb = new Tone.Reverb(4).toDestination()
 const compressor = new Tone.Compressor().toDestination()
 const distortion = new Tone.Distortion().toDestination()
+const vibrato = new Tone.Vibrato().toDestination()
 
 const delay = new Tone.FeedbackDelay(0.3, 0.5).toDestination()
 
@@ -144,4 +145,29 @@ export function setDistortionWet(value : number) {
     distortion.set({
         wet: value
     })
+}
+
+export function connectVibrato() {
+    polySynth.connect(vibrato)
+}
+
+export function disconnectVibrato() {
+    polySynth.disconnect(vibrato)
+}
+
+export function vibratoSetFrequency(value : number) {
+    vibrato.set({
+        frequency: value
+    })
+}
+export function vibratoSetDepth(value : number) {
+    vibrato.set({
+        depth: value
+    })
+}
+export function vibratoSetWet(value : number) {
+    vibrato.set({
+        wet: value
+    })
+
 }
