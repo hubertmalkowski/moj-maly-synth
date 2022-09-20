@@ -3,12 +3,13 @@ import * as Tone from 'tone'
 
 const filter = new Tone.Filter(0, "lowpass").toDestination()
 const reverb = new Tone.Reverb(4).toDestination()
+const compressor = new Tone.Compressor().toDestination()
 const delay = new Tone.FeedbackDelay(0.3, 0.5).toDestination()
 
 export const polySynth = new Tone.PolySynth().toDestination()
 polySynth.set({
     oscillator:{
-        type: "sawtooth"
+        type: "square"
     }
 })
 
@@ -103,5 +104,24 @@ export function polySynthDelaySetFeedback(value : number) {
 export function polySynthDelaySetWet(value: number) {
     delay.set({
         wet: value
+    })
+}
+
+export function connectCompressor() {
+    polySynth.connect(compressor)
+}
+
+export function disconnectCompressor() {
+    polySynth.disconnect(compressor)
+}
+
+export function compressorSetThreshold(value : number) {
+    compressor.set({
+        threshold: value
+    })
+}
+export function compressorSetRatio(value : number) {
+    compressor.set({
+        ratio: value
     })
 }

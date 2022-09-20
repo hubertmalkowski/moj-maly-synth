@@ -8,6 +8,7 @@
   import Filter from "./lib/components/Filter.svelte";
   import Reverb from "./lib/components/Reverb.svelte";
   import Delay from "./lib/components/Delay.svelte";
+  import Compressor from "./lib/components/Compressor.svelte";
 
   function log(event) {
       console.log("Adjusted "+ event.detail)
@@ -31,6 +32,9 @@
         <div class="thirdColumn column">
           <Reverb></Reverb>
           <Delay></Delay>
+        </div>
+        <div class="fourthColumn column">
+          <Compressor></Compressor>
         </div>
 
       </div>
@@ -92,6 +96,10 @@
   .thirdColumn {
     grid-column-start: 3;
     grid-column-end: 4;
+  }
+  .fourthColumn {
+    grid-column-start: 4;
+    grid-column-end: 5;
   }
   .column {
     display: flex;
