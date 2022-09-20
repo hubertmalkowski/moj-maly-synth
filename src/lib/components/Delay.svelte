@@ -64,7 +64,7 @@
     <div bind:this={settingBox} class="settingBox">
         <Knob label="time" color={knobColor} on:adjusting={changeTime}></Knob>
         <Knob label="feed"  color={knobColor} on:adjusting={changeFeedback} value={50}></Knob>
-        <Knob label="feed"  color={knobColor} on:adjusting={changeWet} value={50}></Knob>
+        <Knob label="wet"  color={knobColor} on:adjusting={changeWet} value={50}></Knob>
 
     </div>
 
