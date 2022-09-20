@@ -55,7 +55,7 @@
 </script>
 
 <div class="setting">
-    <div class="settingHeading">distortion
+    <div class="settingHeading">vibrato
         <span class="material-icons" on:click={powerOn} bind:this={onIcon}>power_settings_new</span>
     </div>
     <div bind:this={settingBox} class="settingBox">
