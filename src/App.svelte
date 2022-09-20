@@ -9,6 +9,7 @@
   import Reverb from "./lib/components/Reverb.svelte";
   import Delay from "./lib/components/Delay.svelte";
   import Compressor from "./lib/components/Compressor.svelte";
+  import Distortion from "./lib/components/Distortion.svelte";
 
   function log(event) {
       console.log("Adjusted "+ event.detail)
@@ -35,6 +36,7 @@
         </div>
         <div class="fourthColumn column">
           <Compressor></Compressor>
+          <Distortion></Distortion>
         </div>
 
       </div>

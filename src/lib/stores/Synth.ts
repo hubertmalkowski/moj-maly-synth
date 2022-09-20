@@ -4,12 +4,14 @@ import * as Tone from 'tone'
 const filter = new Tone.Filter(0, "lowpass").toDestination()
 const reverb = new Tone.Reverb(4).toDestination()
 const compressor = new Tone.Compressor().toDestination()
+const distortion = new Tone.Distortion().toDestination()
+
 const delay = new Tone.FeedbackDelay(0.3, 0.5).toDestination()
 
 export const polySynth = new Tone.PolySynth().toDestination()
 polySynth.set({
     oscillator:{
-        type: "square"
+        type: "sine"
     }
 })
 
@@ -123,5 +125,23 @@ export function compressorSetThreshold(value : number) {
 export function compressorSetRatio(value : number) {
     compressor.set({
         ratio: value
+    })
+}
+
+export function connectDistortion() {
+    polySynth.connect(distortion)
+}
+export function disconnectDistortion() {
+    polySynth.disconnect(distortion)
+}
+
+export function setDistortion(value : number) {
+    distortion.set({
+        distortion: value
+    })
+}
+export function setDistortionWet(value : number) {
+    distortion.set({
+        wet: value
     })
 }

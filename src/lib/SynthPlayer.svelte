@@ -148,6 +148,9 @@
                 octave -= 1
                 break;
 
+            case (" "):
+                getSynth().releaseAll()
+                break;
 
 
 
