@@ -1,10 +1,13 @@
 <script lang="ts">
 
 
-
-    import {createEventDispatcher} from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
 
     const dispatch = createEventDispatcher()
+
+
+
+
 
     let path : any;
     let pointer : HTMLElement;
@@ -15,6 +18,8 @@
     export let step : number = 1;
 
     export let label : string = "Default"
+
+    export let color : string
 
 
     let onClickMouseX : number
@@ -29,8 +34,7 @@
         pointer.style.width = "2rem"
 
         document.onselectstart = () => {return false}
-        document.body.style.cursor = "none"
-        knob.style.cursor = "none"
+        document.body.style.cursor = "ns-resize"
     }
     function onKnobUnclick() {
         if(isClicked) {
@@ -43,7 +47,6 @@
 
         document.onselectstart = () => {return true}
         document.body.style.cursor = "default"
-        knob.style.cursor = "ns-resize"
 
 
 
@@ -68,6 +71,17 @@
             dispatch("adjusting", value)
         }
     }
+
+    onMount(() => {
+        dispatch("adjusting", value)
+
+        pointer.style.offsetDistance = value + "%"
+
+        if(color) {
+            pointer.style.backgroundColor = color
+        }
+
+    })
 
 
 
@@ -160,7 +174,7 @@
     }
     .label {
         font-family: Inter, sans-serif;
-        font-size: 20px;
+        font-size: 1rem;
         font-weight: 500;
         line-height: 29px;
         letter-spacing: 0em;

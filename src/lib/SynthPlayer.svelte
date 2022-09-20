@@ -277,3 +277,13 @@
     <span class="info">Current octave: {octave}</span>
     <slot></slot>
 </div>
+
+<style>
+
+    .info {
+        position: absolute;
+        bottom: 1px;
+        left: 1px;
+    }
+
+</style>
