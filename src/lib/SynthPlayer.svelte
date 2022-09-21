@@ -19,7 +19,9 @@
         u : false,
         j : false,
         k : false,
-        l : false
+        l : false,
+        o : false,
+        p: false
     }
 
     let octave = 4
@@ -139,6 +141,23 @@
                     keyboard.l = true
                 }
                 break;
+
+            case ("o"):
+
+                if (!keyboard.o) {
+                    getSynth().triggerAttack("C#" + (octave + 1));
+                    keyboard.o = true
+                }
+                break;
+
+            case ("p"):
+
+                if (!keyboard.p) {
+                    getSynth().triggerAttack("D#" + (octave + 1));
+                    keyboard.p = true
+                }
+                break;
+
 
 
             case ("x"):
@@ -265,6 +284,21 @@
                 }
                 break;
 
+            case ("o"):
+
+                if (keyboard.o) {
+                    getSynth().triggerRelease("C#" + (octave + 1));
+                    keyboard.o = false
+                }
+                break;
+
+            case ("p"):
+
+                if (keyboard.p) {
+                    getSynth().triggerRelease("D#" + (octave + 1));
+                    keyboard.p = false
+                }
+                break;
 
 
 
