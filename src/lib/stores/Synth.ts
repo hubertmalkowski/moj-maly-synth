@@ -12,7 +12,7 @@ const delay = new Tone.FeedbackDelay(0.3, 0.5).toDestination()
 export const polySynth = new Tone.PolySynth().toDestination()
 polySynth.set({
     oscillator:{
-        type: "square"
+        type: "sine"
     }
 })
 
