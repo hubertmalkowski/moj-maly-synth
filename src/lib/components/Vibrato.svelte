@@ -55,7 +55,7 @@
 </script>
 
 <div class="setting">
-    <div class="settingHeading">vibrato
+    <div class="settingHeading">weirder
         <span class="material-icons" on:click={powerOn} bind:this={onIcon}>power_settings_new</span>
     </div>
     <div bind:this={settingBox} class="settingBox">
